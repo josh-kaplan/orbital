@@ -1,4 +1,17 @@
 #!/usr/bin/env python
+"""
+mean_anomaly.py
+
+Josh Kaplan
+contact@joshkaplan.org
+
+Solves for the mean anomaly in terms of symbolic variables using Newtons's 
+Method. Those variables can be replaced (see "variable substitution" below) to 
+find an exact solution. Note that this script only uses a maximum number of
+iterations (see "iterations" in the "newtons_method" function) rather than a
+tolerance for ease of use with symbolic variables.
+
+"""
 from __future__ import division
 from math import pi
 from sympy import *
@@ -21,8 +34,8 @@ def df(x):
     return dfunc.subs(E, x)
 
 def newtons_method():
-    x = -2*pi           # initial guess
-    iters = 3       # number of iterations
+    x = -2*pi     # initial guess
+    iters = 3     # number of iterations
     for i in xrange(1, iters+1):
         x = x + f(x)/df(x)
     print x
