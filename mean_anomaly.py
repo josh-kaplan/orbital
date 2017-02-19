@@ -12,7 +12,7 @@ iterations (see "iterations" in the "newtons_method" function) rather than a
 tolerance for ease of use with symbolic variables.
 
 """
-from __future__ import division
+from __future__ import division, print_function
 from math import pi
 from sympy import *
 
@@ -36,9 +36,9 @@ def df(x):
 def newtons_method():
     x = -2*pi     # initial guess
     iters = 3     # number of iterations
-    for i in xrange(1, iters+1):
+    for i in range(1, iters+1):
         x = x + f(x)/df(x)
-    print x
+    print(x)
 
 if __name__ == '__main__':
     newtons_method()
