@@ -5,8 +5,8 @@ mean_anomaly.py
 Josh Kaplan
 contact@joshkaplan.org
 
-Solves for the mean anomaly in terms of symbolic variables using Newtons's 
-Method. Those variables can be replaced (see "variable substitution" below) to 
+Solves for the mean anomaly in terms of symbolic variables using Newtons's
+Method. Those variables can be replaced (see "variable substitution" below) to
 find an exact solution. Note that this script only uses a maximum number of
 iterations (see "iterations" in the "newtons_method" function) rather than a
 tolerance for ease of use with symbolic variables.
@@ -20,7 +20,7 @@ from sympy import *
 M, E, e, p = symbols('M E e p')
 
 # Variable substitution - These are optional
-M = 1/2 #p/2
+M = p/2
 e = .3
 
 # The function and it's derivative
@@ -35,7 +35,7 @@ def df(x):
 
 def newtons_method():
     x = -2*pi     # initial guess
-    iters = 3     # number of iterations
+    iters = 2     # number of iterations
     for i in range(1, iters+1):
         x = x + f(x)/df(x)
     print(x)
